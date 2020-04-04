@@ -2,11 +2,8 @@
 A PyTorch implementation of [Unsupervised Face Normalization with Extreme Pose and Expression in the Wild](http://openaccess.thecvf.com/content_CVPR_2019/papers/Qian_Unsupervised_Face_Normalization_With_Extreme_Pose_and_Expression_in_the_CVPR_2019_paper.pdf) from the paper by Qian, Yichen and Deng, Weihong and Hu, Jiani.
 
 Here are some examples made by fnm.pytorch.
-<<<<<<< HEAD
-![Alt text](samples.PNG)
-=======
 ![Alt text](./imgs/Samples.png)
->>>>>>> Upload 2019.4.4
+
 
 
 Pre-requisites
