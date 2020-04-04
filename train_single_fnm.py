@@ -2,7 +2,6 @@
 # encoding: utf-8
 
 import os
-import numpy as np
 import matplotlib as mpl
 mpl.use('Agg')
 import torch
@@ -15,13 +14,10 @@ from util.DataAugmentation import FaceIdPoseDataset
 from util.checkpoint import save_checkpoint
 from util.Gradient_Control import enable_gradients, disable_gradients
 import torch.backends.cudnn as CUDNN
-from util.Validation_CFP import Validation_CFP
-from util.Validation_CFP_Single import Validation_CFP_Single
-import torch.nn.functional as F
 from util.log_learning import log_learning
 import torchvision.utils as vutils
 
-def train_single_DRGAN(D_model, G_model, C_model, args):
+def train_single_fnm(D_model, G_model, C_model, args):
 
     writer = SummaryWriter()
 
