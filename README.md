@@ -31,6 +31,6 @@ Procedure
 To-do list
 --
 - [x] Released the training code. 
-- [ ] Released the evaluation code.
+- [x] Released the evaluation code.
 - [ ] Upload the trained model
 

@@ -20,8 +20,8 @@ class FaceIdPoseDataset(Dataset):
         return len(self.imgFrame)
 
     def __getitem__(self, idx):
-        img_path = os.path.join(self.root_dir, self.imgFrame.ix[idx, 0])
-        imgName = self.imgFrame.ix[idx, 0]
+        img_path = os.path.join(self.root_dir, self.imgFrame.iloc[idx, 0])
+        imgName = self.imgFrame.iloc[idx, 0]
         if not os.path.isfile(img_path):
             print('>>> No Such File: {}'.format(img_path))
             exit()

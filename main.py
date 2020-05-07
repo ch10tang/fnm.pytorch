@@ -41,7 +41,8 @@ if __name__=="__main__":
     parser.add_argument('-num-critic-G', default=1, type=int, help='number of iterations of changing the training between G and D')
     parser.add_argument('-num-critic-D', default=1, type=int, help='number of iterations of changing the training between G and D')
     # model
-    parser.add_argument('-VGGFace2', action='store_true', default=False, help='enable the encoding model')
+    parser.add_argument('-VGGFace2', action='store_true', default=False, help='enable the VGGFace2 encoding model')
+    parser.add_argument('-ArcFace', action='store_true', default=False, help='enable the ArcFace encoding model')
     # test
     parser.add_argument('-test', action='store_true', default=None, help='Test Network Performance')
     parser.add_argument('-snapshot', type=str, default=None, help='filename of model snapshot(snapshot/{date}/{epoch}) [default: None]')
