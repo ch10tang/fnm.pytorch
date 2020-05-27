@@ -17,7 +17,7 @@ if __name__=="__main__":
     parser = argparse.ArgumentParser(description='DR_GAN')
     # learning & saving parameters
     parser.add_argument('-lambda_l1', type=float, default=0.001, help='weight of the loss for L1 texture loss [default: 0.001]')
-    parser.add_argument('-lambda_fea', type=float, default=10, help='weight of the loss for face model feature loss [default: 1000]')
+    parser.add_argument('-lambda_fea', type=float, default=1000, help='weight of the loss for face model feature loss [default: 1000]')
     parser.add_argument('-lambda_reg', type=float, default=1e-5, help='weight of the loss for L2 regularitaion loss [default: 1e-5]')
     parser.add_argument('-lambda_gan', type=float, default=1, help='weight of the loss for gan loss [default: 1]')
     parser.add_argument('-lmbda_gp', type=float, default=10, help='Gradient Penalty Coeficient [default: 10]')
@@ -26,7 +26,7 @@ if __name__=="__main__":
     parser.add_argument('-beta1', type=float, default=0, help='adam optimizer parameter [default: 0.5]')
     parser.add_argument('-beta2', type=float, default=0.9, help='adam optimizer parameter [default: 0.999]')
     parser.add_argument('-epochs', type=int, default=10, help='number of epochs for train [default: 10]')
-    parser.add_argument('-batch-size', type=int, default=8, help='batch size for training [default: 8]')
+    parser.add_argument('-batch-size', type=int, default=16, help='batch size for training [default: 8]')
     parser.add_argument('-snapshot-dir', type=str, default='snapshot', help='where to save the snapshot while training')
     parser.add_argument('-save-freq', type=int, default=1, help='save learned model for every "-save-freq" epoch')
     parser.add_argument('-cuda', action='store_true', default=True, help='enable the gpu')
@@ -41,10 +41,10 @@ if __name__=="__main__":
     parser.add_argument('-num-critic-G', default=1, type=int, help='number of iterations of changing the training between G and D')
     parser.add_argument('-num-critic-D', default=1, type=int, help='number of iterations of changing the training between G and D')
     # model
-    parser.add_argument('-VGGFace2', action='store_true', default=False, help='enable the VGGFace2 encoding model')
+    parser.add_argument('-VGGFace2', action='store_true', default=True, help='enable the VGGFace2 encoding model')
     parser.add_argument('-ArcFace', action='store_true', default=False, help='enable the ArcFace encoding model')
     # test
-    parser.add_argument('-test', action='store_true', default=None, help='Test Network Performance')
+    parser.add_argument('-model-select', type=str, default='Light_CNN_29', help='Model Select')
     parser.add_argument('-snapshot', type=str, default=None, help='filename of model snapshot(snapshot/{date}/{epoch}) [default: None]')
     parser.add_argument('-generate', action='store_true', default=None, help='Generate normalized image from given image')
     parser.add_argument('-generate-place', type=str, default='GenerateImage', help='place to save the generated images while testing')
@@ -57,9 +57,9 @@ if __name__=="__main__":
 
     args = parser.parse_args()
 
+    # Load the Expert Network
     C = resnet50_ft(weights_path='Pretrained/VGGFace2/resnet50_ft_dims_2048.pth')
     print('VGGFace2 model built successfully')
-
     if (args.generate):
         evl_args_warning(args)
         print('\nLoading model from [%s]...' % args.snapshot)

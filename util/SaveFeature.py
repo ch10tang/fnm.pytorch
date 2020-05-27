@@ -10,7 +10,7 @@ def SaveFeature(features, batchImgName, SaveRoot):
         # SavePath = os.path.join(SaveRoot, type, subject)
         FeaturePath, SavePath = ConcatPath(SaveRoot, tmp, '.txt')
         if not os.path.isdir(SavePath): os.makedirs(SavePath)
-        # FeaturePath = SavePath + '/' + tmp[2][:len(tmp[2])-4] + '.txt'
+
         with open(FeaturePath, 'w') as f:
             for fea in feature:
                 text = str(fea)
