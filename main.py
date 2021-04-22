@@ -49,7 +49,7 @@ if __name__=="__main__":
     parser.add_argument('-generate', action='store_true', default=None, help='Generate normalized image from given image')
     parser.add_argument('-generate-place', type=str, default='GenerateImage', help='place to save the generated images while testing')
     parser.add_argument('-encoder', action='store_true', default=False, help='Extract identity features by idependent model')
-    parser.add_argument('-decoder', action='store_true', default=False, help='Generate the normalized image')
+    parser.add_argument('-decoder', action='store_true', default=True, help='Generate the normalized image')
     # option
     parser.add_argument('-resume', default='', type=str, metavar='PATH', help='path to latest checkpoint (default: none)')
     parser.add_argument('-pretrain', default='', type=str, metavar='PATH', help='path to the pretrain model (default:none)')
