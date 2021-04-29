@@ -21,19 +21,19 @@ Pre-requisites
 Datasets
 --
 - Download face dataset such as CAISA-WebFace, VGGFace2, and MS-Celeb-1M as source set, and you can use any constrained (in-the-house) dataset as normal set.
-- All face images are normalized to 250x250 according to landmarks. According to the five facial points, please follow the align protocol in [LightCNN](https://github.com/AlfredXiangWu/LightCNN). We also provide the crop code (MTCNN) as shown below.
+- All face images are normalized to 250x250 according to landmarks. According to the five facial points, please follow the align protocol in [LightCNN](https://github.com/AlfredXiangWu/LightCNN). I also provide the crop code (MTCNN) which as shown below.
 
 Training and Inference 
 --
 1. Colone the Repository to preserve Directory Strcuture. 
-2. Download the face expert model from [VGGFace2 Github](), and put the models in **/Pretrained/VGGFace2/** directory. 
-3. Change the directrory to **/FaceAlignment/** (*cd FaceAlignment*), and crop and align the input face images by running:
+2. Download the [face expert model](https://drive.google.com/drive/folders/1V7oMdPm2gmoBXKLsHrlzD0Gx2yAyk8qZ?usp=sharing), and put the model in **/Pretrained/VGGFace2/** directory. 
+3. Change the directory to **/FaceAlignment/** (*cd FaceAlignment*), and crop and align the input face images by running:
 
     ```python face_align.py```
 4. Train the face normalization model by running:
 
     ```python main.py -front-list {} -profile-list {}```
-5. We also provide a simple test code, which can help to generate the normalized face and extract the features:
+5. I also provide a simple test code, which can help to generate the normalized face and extract the features:
 
     ```python main.py -generate -gen-list {} -snapshot {your trained model}```
 
